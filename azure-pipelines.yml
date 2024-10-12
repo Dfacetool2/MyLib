@@ -42,8 +42,8 @@ steps:
   displayName: 'Run unit tests'
 
 - task: Docker@2
+  displayName: Build an image
   inputs:
-    containerRegistry: '$(dockerRegistryServiceConnection)'
     repository: 'flask-app'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
