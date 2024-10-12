@@ -26,7 +26,9 @@ variables:
  #132
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: mypc
+  demands:
+  - agent.os -equals Windows_NT
 
 steps:
 - task: UsePythonVersion@0
@@ -40,17 +42,8 @@ steps:
 - script: python -m unittest discover
   displayName: 'Run unit tests'
 
-- task: Docker@2
-  displayName: Build an image
-  inputs:
-    repository: 'flask-app'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: |
-      $(Build.BuildId)
+- script: docker build -t flask-app:latest .
+  displayName: 'Build Docker Image'
 
-- task: AzureWebAppContainer@1
-  inputs:
-    azureSubscription: $(azureServiceConnectionId)
-    appName:  $(webAppName)
-    containers: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+- script: docker run -d -p 5000:5000 flask-app:latest
+  displayName: 'Run Docker Container'
