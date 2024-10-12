@@ -5,15 +5,14 @@ from app import app
 class FlaskTestCase(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
-        elf.app.testing = True
+        self.app.testing = True
 
     def test_index(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data.decode(), 'Hello, World!')
-        
+
     def test_calculate_hypotenuse_success(self):
-        # 测试成功计算斜边
         payload = {
             'a': 3,
             'b': 4
