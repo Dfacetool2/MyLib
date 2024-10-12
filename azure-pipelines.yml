@@ -26,6 +26,7 @@ variables:
 
   dockerRegistryServiceConnection = 'mylibtest'
 
+
 pool:
   vmImage: 'ubuntu-latest'
 
