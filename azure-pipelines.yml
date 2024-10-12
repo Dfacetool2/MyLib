@@ -6,23 +6,23 @@
 trigger:
 - master
 
-variables:
-  # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '79604af7-679a-47e1-a9b3-dc46157eb410'
+# variables:
+#   # Azure Resource Manager connection created during pipeline creation
+#   azureServiceConnectionId: '79604af7-679a-47e1-a9b3-dc46157eb410'
 
-  # Web app name
-  webAppName: 'DLib'
+#   # Web app name
+#   webAppName: 'DLib'
 
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+#   # Agent VM image name
+#   vmImageName: 'ubuntu-latest'
 
-  # Environment name
-  environmentName: ''
+#   # Environment name
+#   environmentName: ''
 
-  # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
+#   # Project root folder. Point to the folder containing manage.py file.
+#   projectRoot: $(System.DefaultWorkingDirectory)
 
-  pythonVersion: '3.11'
+#   pythonVersion: '3.11'
 
 pool:
   name: mypc
