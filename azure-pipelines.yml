@@ -23,12 +23,9 @@ variables:
   projectRoot: $(System.DefaultWorkingDirectory)
 
   pythonVersion: '3.11'
- #132
 
 pool:
   name: mypc
-  demands:
-  - agent.os -equals Windows_NT
 
 steps:
 - task: UsePythonVersion@0
