@@ -24,8 +24,6 @@ variables:
 
   pythonVersion: '3.11'
 
-  dockerRegistryServiceConnection = 'mylibtest'
-
 
 pool:
   vmImage: 'ubuntu-latest'
