@@ -26,6 +26,8 @@ variables:
 
 pool:
   name: mypc
+  demands:
+  - Agent.OS -equals Windows_NT
 
 steps:
 - task: UsePythonVersion@0
