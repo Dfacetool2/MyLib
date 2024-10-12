@@ -2,17 +2,20 @@ import unittest
 import json
 from app import app
 
-class FlaskTestCase(unittest.TestCase):
+class FlaskAPITestCase(unittest.TestCase):
     def setUp(self):
+        # 设置测试客户端
         self.app = app.test_client()
         self.app.testing = True
 
-    def test_index(self):
+    def test_root_route(self):
+        # 测试根路由
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data.decode(), 'Hello, World!')
+        self.assertEqual(response.data.decode('utf-8'), 'Hello, World!')
 
     def test_calculate_hypotenuse_success(self):
+        # 测试成功计算斜边
         payload = {
             'a': 3,
             'b': 4
