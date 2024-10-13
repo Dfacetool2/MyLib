@@ -93,7 +93,7 @@ class FlaskAPITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         data = json.loads(response.data)
         self.assertIn('error', data)
-        self.assertEqual(data['error'], '请求体中必须包含 JSON 数据')
+        self.assertEqual(data['error'], '请求体中必须包含有效的 JSON 数据')
 
 if __name__ == '__main__':
     unittest.main()
